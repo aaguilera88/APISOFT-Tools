@@ -2,8 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Alejandro Aguilera</Authors>
+    <Company>APISOFT Solutions</Company>
+    <PackageLicenseFile></PackageLicenseFile>
+    <Copyright>APISOFT Solutions</Copyright>
+    <PackageProjectUrl>https://github.com/aaguilera88/APISOFT-Tools</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/aaguilera88/APISOFT-Tools</RepositoryUrl>
+    <PackageId>ApisoftSolutionsGenericRepository</PackageId>
+    <Version>1.1</Version>
   </PropertyGroup>
-
+	<PropertyGroup>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.10" />
   </ItemGroup>

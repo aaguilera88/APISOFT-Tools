@@ -64,5 +64,24 @@ namespace GenericRepository
 
             _ = await dbContext.SaveChangesAsync();
         }
+
+        async Task<IEnumerable<T>> IRepository.FindByConditionNoTrackingAsync<T>(Expression<Func<T, bool>> expression)
+        {
+            return await dbContext.Set<T>().Where(expression).AsNoTracking().ToListAsync();
+        }
+
+        async Task IRepository.CreateRangeAsync<T>(IEnumerable<T> entities)
+        {
+            this.dbContext.Set<T>().AddRange(entities);
+
+            _ = await dbContext.SaveChangesAsync();
+        }
+
+        async Task IRepository.UpdateRangeAsync<T>(IEnumerable<T> entities)
+        {
+            dbContext.Set<T>().UpdateRange(entities);
+
+            _ = await dbContext.SaveChangesAsync();
+        }
     }
 }
