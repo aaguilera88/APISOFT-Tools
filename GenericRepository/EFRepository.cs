@@ -83,5 +83,48 @@ namespace GenericRepository
 
             _ = await dbContext.SaveChangesAsync();
         }
+
+        public async Task<T> FindById<T>(long id) where T : class
+        {
+            return await dbContext.Set<T>().FindAsync(id);
+        }
+
+        public async Task<T> FindById<T>(string id) where T : class
+        {
+            return await dbContext.Set<T>().FindAsync(id);
+        }
+
+        public async Task<T> FindById<T>(Guid id) where T : class
+        {
+            return await dbContext.Set<T>().FindAsync(id);
+        }
+
+        public async Task<T> FindByIAsdNoTrackingAsync<T>(int id) where T : class
+        {
+            var entity = await dbContext.Set<T>().FindAsync(id);
+            dbContext.Entry(entity).State = EntityState.Detached;
+            return entity;
+        }
+
+        public async Task<T> FindByIAsdNoTrackingAsync<T>(long id) where T : class
+        {
+            var entity = await dbContext.Set<T>().FindAsync(id);
+            dbContext.Entry(entity).State = EntityState.Detached;
+            return entity;
+        }
+
+        public async Task<T> FindByIAsdNoTrackingAsync<T>(string id) where T : class
+        {
+            var entity = await dbContext.Set<T>().FindAsync(id);
+            dbContext.Entry(entity).State = EntityState.Detached;
+            return entity;
+        }
+
+        public async Task<T> FindByIAsdNoTrackingAsync<T>(Guid id) where T : class
+        {
+            var entity = await dbContext.Set<T>().FindAsync(id);
+            dbContext.Entry(entity).State = EntityState.Detached;
+            return entity;
+        }
     }
 }
